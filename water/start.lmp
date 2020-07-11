@@ -1,0 +1,23 @@
+echo both
+
+include		in.temp
+include		in.pressure
+include		in.seed
+units		real
+atom_style	full
+include		in.box
+include 	in.setup
+
+fix             1 all plumed plumedfile plumed.dat outfile log.plumed
+fix 		2 all shake 1e-6 200 0 b 1 a 1
+fix             3 all nve 
+fix             4 all temp/csvr ${temperature} ${temperature} ${tempDamp} ${seed}
+
+run             10000000
+
+unfix		1
+unfix		2
+unfix		3
+unfix		4
+
+write_data	data.final

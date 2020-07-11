@@ -1,0 +1,24 @@
+# vim:ft=plumed
+LOAD FILE=OPESumbrellas.cpp
+UNITS NATURAL
+
+p: POSITION ATOM=1
+
+OPES_UMBRELLAS ...
+  LABEL=opes
+  ARG=p.x
+  FILE=DeltaFs.data
+  PACE=500
+  SIGMA=0.185815
+  MIN_CV=-2.5
+  MAX_CV=2.5
+... OPES_UMBRELLAS
+
+PRINT FMT=%g STRIDE=500 FILE=Colvar.data ARG=p.x,p.y,opes.*
+
+ENDPLUMED
+
+will produce 10 independent run, use instead WALKERS_MPI to make multiple walkers share bias
+
+to print the running FES with GNUPLOT:
+p '<awk ''END{for(i=3;i<=NF;i++)print -2.5+(i-3)*5/(NF-3),$i}'' DeltaFs.0.data'w lp

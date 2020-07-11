@@ -1,0 +1,37 @@
+# vim:ft=plumed
+LOAD FILE=OPESmultiThermalBaric.cpp
+#RESTART
+MOLINFO STRUCTURE=input-chignolin.pdb
+WHOLEMOLECULES STRIDE=1 ENTITY0=1-166
+
+ene: ENERGY
+vol: VOLUME
+pdb_rmsd: RMSD REFERENCE=input-chignolin.pdb TYPE=OPTIMAL
+
+OPES_MULTITHERMAL_MULTIBARIC ...
+  LABEL=opes
+  ARG=ene,vol
+  FILE=DeltaFs.data
+  PACE=500
+# TEMP=500
+  MIN_TEMP=270
+  MAX_TEMP=800
+  PRESSURE=0.06022140857*2000 #2 kbar
+  MIN_PRESSURE=0.06022140857  #1 bar
+  MAX_PRESSURE=0.06022140857*4000 #4 kbar
+  CUT_CORNER #ad hoc option, will be made more general
+  WALKERS_MPI
+... OPES_MULTITHERMAL_MULTIBARIC
+
+#e2e: DISTANCE ATOMS=5,147 #first and last CA
+#gyr: GYRATION ATOMS=5,26,47,67,73,88,102,109,123,147
+
+PRINT FMT=%g STRIDE=500 FILE=Colvar.data ARG=*
+
+ENDPLUMED
+
+temp=500 K
+pres=2000 bar
+
+input obtained from unbiased simultation, only rep 6,8,9 start from folded
+

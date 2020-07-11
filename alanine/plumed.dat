@@ -1,0 +1,23 @@
+# vim:ft=plumed
+LOAD FILE=OPESmultiCanonical.cpp
+
+phi: TORSION ATOMS=5,7,9,15
+psi: TORSION ATOMS=7,9,15,17
+ene: ENERGY
+
+OPES_MULTICANONICAL ...
+  LABEL=opes
+  ARG=ene
+  FILE=DeltaFs.data
+  PACE=500
+  MIN_TEMP=300
+  MAX_TEMP=1000
+#  STEPS_TEMP=1000
+... OPES_MULTICANONICAL
+
+PRINT FMT=%g STRIDE=500 FILE=Colvar.data ARG=*
+
+ENDPLUMED
+
+The option STEPS_TEMP=1000 was used to make Fig.S2 of the supplemental material
+The simulation with OPES well-tempered used for Fig.S1 was taken from the paper https://pubs.acs.org/doi/10.1021/acs.jpclett.0c00497
