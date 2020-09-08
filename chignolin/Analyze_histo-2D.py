@@ -1,7 +1,8 @@
 #! /usr/bin/env python3
 
-# Used for Fig.2a
+# Default arguments used for Fig.2a
 # Calculates the histogram of the sampled target distribution as a function of energy and volume
+# CAUTION: run Prepare_analysis.sh  before this
 
 import sys
 import numpy as np
@@ -9,12 +10,10 @@ import pandas as pd
 import subprocess
 import argparse
 
-# CAUTION: run label_and_combine_traj.sh  before this, to combine the trajectories
-
 #parser
 parser = argparse.ArgumentParser(description='calculate Histogram of energies and volumes')
 parser.add_argument('--nbins',dest='nbins',type=int,default=300,required=False,help='number of bins')
-parser.add_argument('--tran',dest='tran',type=int,default=0,required=False,help='transient to be skipped')
+parser.add_argument('--tran',dest='tran',type=int,default=400000,required=False,help='transient to be skipped')
 parser.add_argument('--bck',dest='bck',type=str,default='',required=False,help='backup prefix, e.g. \"bck.0.\"')
 parser.add_argument('-f',dest='filename',type=str,default='all_Colvar.data',required=False,help='input file name')
 parser.add_argument('-o',dest='outfilename',type=str,default='Histo-2D.data',required=False,help='output file name')

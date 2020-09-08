@@ -1,7 +1,8 @@
 #! /usr/bin/env python3
 
-# Used for the inset of Fig.3
+# Default arguments used for the inset of Fig.3
 # Calculates the folded fraction at fixed pressure for different temperatures, estimating the uncertainties with block average
+# CAUTION: run Prepare_analysis.sh  before this
 
 import sys
 import numpy as np
@@ -9,24 +10,23 @@ import pandas as pd
 import subprocess
 import argparse
 
-# CAUTION: run label_and_combine_traj.sh  before this, to combine the trajectories
 
 #set columns
 ene_col=1
 vol_col=2
 bias_col=4
-basin_col=6
+basin_col=5
 
 #parser
 parser = argparse.ArgumentParser(description='reweight as a function of a CV for a given temperature and pressure')
-parser.add_argument('--blocks',dest='num_blocks',type=int,required=True,help='number of blocks')
+parser.add_argument('--blocks',dest='num_blocks',type=int,default=4,required=False,help='number of blocks')
 parser.add_argument('--temp',dest='temp',type=float,default=500,required=False,help='the simulation temperature')
 parser.add_argument('--mintemp',dest='mintemp',type=float,default=280,required=False,help='the minimum temperature')
 parser.add_argument('--maxtemp',dest='maxtemp',type=float,default=370,required=False,help='the maximum temperature')
 parser.add_argument('--pres',dest='pres',type=float,default=2000,required=False,help='the simulation pressure (bar)')
 parser.add_argument('--rewpres',dest='rewpres',type=float,default=1,required=False,help='the reweighting pressure (bar)')
 parser.add_argument('--nbins',dest='nbins',type=int,default=50,required=False,help='number of bins')
-parser.add_argument('--tran',dest='tran',type=int,default=0,required=False,help='transient to be skipped')
+parser.add_argument('--tran',dest='tran',type=int,default=400000,required=False,help='transient to be skipped')
 parser.add_argument('--bck',dest='bck',type=str,default='',required=False,help='backup prefix, e.g. \"bck.0.\"')
 parser.add_argument('-f',dest='filename',type=str,default='all_Colvar.data',required=False,help='input file name')
 parser.add_argument('-o',dest='outfilename',type=str,default='temp_folded.data',required=False,help='output file name')

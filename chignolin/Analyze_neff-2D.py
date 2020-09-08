@@ -1,15 +1,14 @@
 #! /usr/bin/env python3
 
-# Used for Fig.2b
+# Default arguments used for Fig.2b
 # Calculates the effective sample size as a function of temperature and pressure
+# CAUTION: run Prepare_analysis.sh  before this
 
 import sys
 import numpy as np
 import pandas as pd
 import subprocess
 import argparse
-
-# CAUTION: run label_and_combine_traj.sh  before this, to combine the trajectories
 
 #parser
 parser = argparse.ArgumentParser(description='calculate Neff over a range of temperatures and pressures')
@@ -20,7 +19,7 @@ parser.add_argument('--pres',dest='pres',type=float,default=2000,required=False,
 parser.add_argument('--minpres',dest='minpres',type=float,default=1,required=False,help='the minimum preserature')
 parser.add_argument('--maxpres',dest='maxpres',type=float,default=4000,required=False,help='the maximum preserature')
 parser.add_argument('--nbins',dest='nbins',type=int,default=50,required=False,help='number of bins')
-parser.add_argument('--tran',dest='tran',type=int,default=0,required=False,help='transient to be skipped')
+parser.add_argument('--tran',dest='tran',type=int,default=400000,required=False,help='transient to be skipped')
 parser.add_argument('--bck',dest='bck',type=str,default='',required=False,help='backup prefix, e.g. \"bck.0.\"')
 parser.add_argument('-f',dest='filename',type=str,default='all_Colvar.data',required=False,help='input file name')
 parser.add_argument('-o',dest='outfilename',type=str,default='Neff-2D.data',required=False,help='output file name')
