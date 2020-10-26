@@ -28,3 +28,11 @@ PRINT ARG=* STRIDE=100 FILE=COLVAR
 
 ENDPLUMED
 
+
+
+++++++++++ New syntax from PLUMED v2.8 ++++++++++
+
+ecv: ECV_LINEAR ARG=DeltaU TEMP=443
+opes: OPES_EXPANDED ARG=ecv.* PACE=100
+
++++++++++++++++++++++++++++++++++++++++++++++++++

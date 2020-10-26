@@ -21,3 +21,12 @@ ENDPLUMED
 
 The option STEPS_TEMP=1000 was used to make Fig.S2 of the supplemental material
 The simulation with OPES well-tempered used for Fig.S1 was taken from the paper https://pubs.acs.org/doi/10.1021/acs.jpclett.0c00497
+
+
+
+++++++++++ New syntax from PLUMED v2.8 ++++++++++
+
+ecv: ECV_MULTICANONICAL ARG=ene MAX_TEMP=1000 #STEPS_TEMP=1000
+opes: OPES_EXPANDED ARG=ecv.* FILE=DeltaFs.data PACE=500
+
++++++++++++++++++++++++++++++++++++++++++++++++++

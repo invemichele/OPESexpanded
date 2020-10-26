@@ -42,4 +42,28 @@ ENDPLUMED
 All walkers have been combined:
  sort -gsk1 Colvar.* > all_Colvar.data
 
-The file DeltaFs.data has only few first and last lines
+The provided file DeltaFs.data has only few first and last lines
+
+
+
+++++++++++ New syntax from PLUMED v2.8 ++++++++++
+
+mtp: ECV_MULTITHERMAL_MULTIBARIC ...
+  ARG=ene,vol
+  TEMP=400
+  MIN_TEMP=350
+  MAX_TEMP=450
+  PRESSURE=0.06022140857*5000 #0.5 GPa
+  MIN_PRESSURE=0
+  MAX_PRESSURE=0.06022140857*10000
+...
+umb: ECV_UMBRELLAS_LINE ...
+  ARG=refcv.morethan
+  TEMP=400
+  SIGMA=10
+  MIN_CV=0
+  MAX_CV=250
+...
+opes: OPES_EXPANDED ARG=mtp.*,umb.* FILE=DeltaFs.data PACE=500 WALKERS_MPI
+
++++++++++++++++++++++++++++++++++++++++++++++++++

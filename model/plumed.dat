@@ -22,3 +22,12 @@ will produce 10 independent run, use instead WALKERS_MPI to make multiple walker
 
 to print the running FES with GNUPLOT:
 p '<awk ''END{for(i=3;i<=NF;i++)print -2.5+(i-3)*5/(NF-3),$i}'' DeltaFs.0.data'w lp
+
+
+
+++++++++++ New syntax from PLUMED v2.8 ++++++++++
+
+ecv: ECV_UMBRELLAS_LINE ARG=p.x MIN_CV=-2.5 MAX_CV=2.5 SIGMA=0.185815
+opes: OPES_EXPANDED ARG=ecv.* FILE=DeltaFs.data PACE=500
+
++++++++++++++++++++++++++++++++++++++++++++++++++
