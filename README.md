@@ -7,5 +7,5 @@ The full trajectories are available in the Materials Cloud Archive, https://arch
 The software used is PLUMED v2.7, GROMACS 2018.4, and LAMMPS (7 Aug 2019)
 
 The OPES code provided here is the development version.
-The stable code has been included within the OPES module in PLUMED v2.8, see [here](https://www.plumed.org/doc-master/user-doc/html/_o_p_e_s__e_x_p_a_n_d_e_d.htmlhttps://www.plumed.org/doc-master/user-doc/html/_o_p_e_s__e_x_p_a_n_d_e_d.html)
+The stable code has been included within the OPES module in PLUMED v2.8, see [here](https://www.plumed.org/doc-master/user-doc/html/_o_p_e_s__e_x_p_a_n_d_e_d.htmlhttps://www.plumed.org/doc-master/user-doc/html/_o_p_e_s__e_x_p_a_n_d_e_d.html).
 It uses a slightly different syntax, as specified also in the provided plumed.dat files.
