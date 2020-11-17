@@ -1,5 +1,5 @@
 # OPES Expanded Target
-A Unified Approach to Enhanced Sampling - [Phys. Rev. X 10, 041034 (2020)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041034)
+Unified Approach to Enhanced Sampling - [Phys. Rev. X 10, 041034 (2020)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041034)
 
 This repository contains all the input files and scripts needed to reproduce the results of the paper, and all the data used to produce the figures.
 The full trajectories are available in the Materials Cloud Archive, https://archive.materialscloud.org/record/2020.81
