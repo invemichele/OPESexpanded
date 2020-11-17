@@ -1,0 +1,6 @@
+See https://archive.materialscloud.org/record/2020.81
+for complete DeltaFs.data and all_Colvar.data files.
+
+Notice that these files were obtained with a previous
+version of the code, and the header of DeltaFs.data will
+look different with the current one.

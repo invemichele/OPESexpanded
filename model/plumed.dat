@@ -1,18 +1,15 @@
 # vim:ft=plumed
-LOAD FILE=OPESumbrellas.cpp
 UNITS NATURAL
 
 p: POSITION ATOM=1
 
-OPES_UMBRELLAS ...
-  LABEL=opes
+ecv: ECV_UMBRELLAS_LINE ...
   ARG=p.x
-  FILE=DeltaFs.data
-  PACE=500
-  SIGMA=0.185815
   MIN_CV=-2.5
   MAX_CV=2.5
-... OPES_UMBRELLAS
+  SIGMA=0.185815
+...
+opes: OPES_EXPANDED ARG=ecv.* FILE=DeltaFs.data PACE=500
 
 PRINT FMT=%g STRIDE=500 FILE=Colvar.data ARG=p.x,p.y,opes.*
 
@@ -23,11 +20,3 @@ will produce 10 independent run, use instead WALKERS_MPI to make multiple walker
 to print the running FES with GNUPLOT:
 p '<awk ''END{for(i=3;i<=NF;i++)print -2.5+(i-3)*5/(NF-3),$i}'' DeltaFs.0.data'w lp
 
-
-
-++++++++++ New syntax from PLUMED v2.8 ++++++++++
-
-ecv: ECV_UMBRELLAS_LINE ARG=p.x MIN_CV=-2.5 MAX_CV=2.5 SIGMA=0.185815
-opes: OPES_EXPANDED ARG=ecv.* FILE=DeltaFs.data PACE=500
-
-+++++++++++++++++++++++++++++++++++++++++++++++++

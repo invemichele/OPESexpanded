@@ -1,5 +1,4 @@
 # vim:ft=plumed
-LOAD FILE=OPESmultiLambda.cpp
 LOAD FILE=LennardJones.cpp
 
 eneWAT: ENERGY
@@ -17,22 +16,10 @@ LENNARDJONES ...
 
 DeltaU: CUSTOM ARG=eneLJ,eneWAT FUNC=x-y PERIODIC=NO
 
-OPES_MULTILAMBDA ...
-  LABEL=ml
-  ARG=DeltaU
-  PACE=100
-  TEMP=443
-... OPES_MULTILAMBDA
-
-PRINT ARG=* STRIDE=100 FILE=COLVAR
-
-ENDPLUMED
-
-
-
-++++++++++ New syntax from PLUMED v2.8 ++++++++++
-
 ecv: ECV_LINEAR ARG=DeltaU TEMP=443
 opes: OPES_EXPANDED ARG=ecv.* PACE=100
 
-+++++++++++++++++++++++++++++++++++++++++++++++++
+PRINT ARG=eneWAT,eneLJ,DeltaU,opes.* STRIDE=100 FILE=COLVAR
+
+ENDPLUMED
+

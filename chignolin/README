@@ -1,0 +1,10 @@
+See https://archive.materialscloud.org/record/2020.81
+for complete DeltaFs.data and all_Colvar.data files.
+
+Notice that these files were obtained with a previous
+version of the code, and the header of DeltaFs.data will
+look different with the current one.
+
+Also, since the current version of ENERGY does not take
+into account for the tail corrections (DispCorr EnerPres),
+the energy from GROMACS was used for reweighting (full_ene)
