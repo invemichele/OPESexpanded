@@ -1,4 +1,12 @@
 # vim:ft=plumed
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#                                                           #
+#  This input generates a simulation that samples the same  #
+#  distribution as 28 umbrella-sampling windows             #
+#                                                           #
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
 UNITS NATURAL
 
 p: POSITION ATOM=1

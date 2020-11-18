@@ -1,5 +1,13 @@
 # vim:ft=plumed
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#                                                                   #
+#  This input generates a multithermal-multibaric simulation that   #
+#  samples a whole range of temperatures and pressures, while also  #
+#  enhancing the sampling of a crystallinity order parameter        #
+#                                                                   #
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
 ene: ENERGY
 vol: VOLUME
 ENVIRONMENTSIMILARITY ...

@@ -1,6 +1,13 @@
 # vim:ft=plumed
 LOAD FILE=LennardJones.cpp
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#                                                                       #
+#  This input generates a simulation that samples all the intermediate  #
+#  states needed for performing thermodynamic integration               #
+#                                                                       #
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
 eneWAT: ENERGY
 LENNARDJONES ...
  LABEL=eneLJ

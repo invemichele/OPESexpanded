@@ -1,4 +1,13 @@
 # vim:ft=plumed
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#                                                                  #
+#  This input generates a multithermal-multibaric simulation that  #
+#  samples a whole range of temperatures and pressures, using a    #
+#  chosen fixed number of replicas (multiple walkers)              #
+#                                                                  #
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
 #RESTART
 MOLINFO STRUCTURE=input-chignolin.pdb
 WHOLEMOLECULES STRIDE=1 ENTITY0=1-166

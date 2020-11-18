@@ -1,5 +1,12 @@
 # vim:ft=plumed
 
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#                                                                 #
+#  This input generates a multicanonical simulation that samples  #
+#  the temperature range 300K-1000K in a single simulation        #
+#                                                                 #
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
 phi: TORSION ATOMS=5,7,9,15
 psi: TORSION ATOMS=7,9,15,17
 ene: ENERGY
