@@ -14,6 +14,9 @@ output_potential        out_potential.data
 output_potential_grid   150
 output_histogram        histogram.data
 
+##
+## NB: you need to enable the VES module to run this ves_md_linearexpansion
+##
 # Potential obtained from:
 # t=-pi/4*0.6;c=cos(t);s=sin(t);sp [-3:3][-3:3][0:20]2*(c*x-s*y)**4+2*(s*x+c*y)**4-4.0*(c*x-s*y)**2-8.0*(s*x+c*y)**2+4*(c*x-s*y)*(s*x+c*y)+1.6*(c*x-s*y)+0.2*(s*x+c*y)+19 w pm3d
 # 1.34549*x**4 +1.90211*x**3*y +3.92705*x**2*y**2 -6.44246*x**2 -1.90211*x*y**3 +5.58721*x*y +1.33481*x +1.34549*y**4 -5.55754*y**2 +0.904586*y +19 
