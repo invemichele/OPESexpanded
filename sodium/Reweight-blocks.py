@@ -81,14 +81,14 @@ for n in range(num_blocks):
     block_w[n]=np.sum(weight[n*len_blocks:(n+1)*len_blocks])
     prob[n,i]=np.sum(weight[n*len_blocks:(n+1)*len_blocks]*np.exp(-0.5*((cv_grid[i]-cv[n*len_blocks:(n+1)*len_blocks])/sigma)**2))
 blocks_neff=np.sum(block_w)**2/np.sum(block_w**2)
-av_fes=np.average(-np.log(prob),axis=0,weights=block_w)
-blocks_var=blocks_neff/(blocks_neff-1)*np.average((-np.log(prob)-av_fes)**2,axis=0,weights=block_w)
-#av_prob=np.average(prob,axis=0,weights=block_w)
-#blocks_var=blocks_neff/(blocks_neff-1)*np.average((prob-av_prob)**2,axis=0,weights=block_w)
+#av_fes=np.average(-np.log(prob),axis=0,weights=block_w)
+#blocks_var=blocks_neff/(blocks_neff-1)*np.average((-np.log(prob)-av_fes)**2,axis=0,weights=block_w)
+av_prob=np.average(prob,axis=0,weights=block_w)
+blocks_var=blocks_neff/(blocks_neff-1)*np.average((prob-av_prob)**2,axis=0,weights=block_w)
 error=np.sqrt(blocks_var/blocks_neff)
 
-#av_fes=-np.log(av_prob)
-#error/=av_prob #error propagation
+av_fes=-np.log(av_prob)
+error/=av_prob #error propagation
 if not args.nomintozero:
   av_fes-=min(av_fes)
 
