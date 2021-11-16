@@ -4,3 +4,5 @@ for complete DeltaFs.data and all_Colvar.data files.
 Notice that these files were obtained with a previous
 version of the code, and the header of DeltaFs.data will
 look different with the current one.
+Also, to obtain the same temperature steps one should add
+the keyword NO_GEOM_SPACING to ECV_MULTITHERMAL_MULTIBARIC

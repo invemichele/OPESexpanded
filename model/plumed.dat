@@ -13,8 +13,8 @@ p: POSITION ATOM=1
 
 ecv: ECV_UMBRELLAS_LINE ...
   ARG=p.x
-  MIN_CV=-2.5
-  MAX_CV=2.5
+  CV_MIN=-2.5
+  CV_MAX=2.5
   SIGMA=0.185815
 ...
 opes: OPES_EXPANDED ARG=ecv.* FILE=DeltaFs.data PACE=500
